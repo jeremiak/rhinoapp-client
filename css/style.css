@@ -1,0 +1,209 @@
+
+/*
+ * Colors
+ */
+
+/* Reset */
+html, body
+{
+ margin: 0;
+ padding: 0;
+ border: 0;
+}
+
+body
+{
+ font-family:Arial,  sans-serif;
+ line-height:1.5;
+ font-size:16px;
+ background: #fff;
+ padding:5px;
+ color: #000;
+ word-wrap: break-word;
+ -webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, h5, h6{ font-weight: normal; }
+
+p img { float: left; margin: 0 10px 5px 0; padding: 0; }
+
+img { border: 0; max-width: 100%; }
+
+table { width:auto; border-collapse: collapse;border-spacing: 0; }
+
+
+/*
+ * Global
+ */
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+}
+h1 { margin-bottom: 0px; }
+h2 { margin-bottom: 2px; }
+h3 { margin-bottom: 2px; }
+
+form label {
+  float: left;
+	text-align: right;
+	margin-right: 15px;
+  width: 130px;
+}
+form input {
+  width: 80px;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.button {
+  display: inline-block;
+  border: 1px solid #D6D6D6;
+  padding: 2px 15px;
+  background: #E0E0E0;
+  border-radius: 4px;
+  box-shadow : 0 1px 4px rgba(0,0,0,.6);
+  text-shadow : 0 1px 3px rgba(0,0,0,.4);
+  text-decoration : none;
+  color: #484848;
+}
+
+.clear {
+  clear:both;
+}
+
+.centered {
+  text-align: center;
+}
+
+.submitForm {
+  margin-top: 20px;
+}
+
+nav {
+  height: 25px;
+  background: #373737;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*
+ * Main
+ */
+body {
+  padding:0;
+  width: 100%;
+}
+#wrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  -moz-box-shadow: 0px 0px 8px #ccc;
+  -webkit-box-shadow: 0px 0px 8px #ccc;
+  box-shadow: 0px 0px 8px #ccc;
+}
+.loginButton {
+  margin: 30px auto;
+}
+
+/*
+ * for the nutrition facts label view
+ */
+.clear-fix {
+    clear:both;
+    display:block;
+}
+.right-align {
+    text-align: right;
+}
+.nutrition-label, .ingredients {
+    font-family: Helvetica;
+    padding:2px;
+}
+.nutrition-label {
+    margin-top: 10px;
+    border: 1px solid black;
+    display:block;
+}
+.nutrition-label .filled-in {
+    background-color: black;
+    width:100%;
+    height:10px;
+}
+.nutrition-label h1, .nutrition-label h2, .nutrition-label h3, .nutrition-label h4 {
+    margin:0;
+}
+.nutrition-label h1 {
+    font-weight:900;
+    line-height:1em;
+}
+.nutrition-label h2 {
+    font-size:1.1em;
+    line-height:1.1em;
+}
+.nutrition-label h2:last-child {
+    margin-bottom:1px;
+}
+.nutrition-label h4 {
+    border-top:1px solid black;
+    font-weight:400;
+    font-size: 0.8em;
+}
+.small-label {
+    font-weight:900;
+    font-size:.7em;
+}
+.nutrition-fact {
+    border:1px solid black;
+    width:100%;
+}
+.nutrition-fact div {
+    margin-top:1px;
+    float:left;
+}
+.nutrient {
+    font-weight:900;
+}
+.nutrient-amount {
+    margin-left:5px;
+}
+.nutrition-fact div.percentage {
+    position:relative;
+    float: right;
+    padding-right:2px;
+}
+.nutrition-label .sub-nutrient .nutrient {
+    font-weight:400;
+    padding-left:5px;
+}
+.ingredients {
+    font-size:.7em;
+    line-height:.9em;
+    text-transform:uppercase;
+}
+.ingredients .title {
+    font-weight:900;
+    margin-right:5px;
+}
