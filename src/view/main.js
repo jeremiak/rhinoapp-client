@@ -7,7 +7,7 @@ R.Router = R.Router || {};
 
     routes: {
       'login': 'login',
-      'profile': 'profilePage',
+      'profile': 'updateProfilePage',
       'person-input': 'personInput',
       'person-input?*path': 'personInput',
       'product-search': 'productSearch',
@@ -30,8 +30,8 @@ R.Router = R.Router || {};
     start: function() {
       var self = this;
       var sid = window.localStorage.getItem('sid');
-      if(sid) {
-        var url = 'http://fathomless-plains-6653.herokuapp.com/create_food_api_session?uid=rhino_user&devid=rhino_device';
+      if(sid === null) {
+        var url = 'http://pacific-eyrie-4115.herokuapp.com/create_food_api_session?uid=rhino_user&devid=rhino_device';        
         $.ajax({
            url: url,
                type: 'GET',
@@ -48,20 +48,19 @@ R.Router = R.Router || {};
             });
       } else {
         self.profileModel = new R.Model.Profile({
-          sessionId: sid
+          sessionId: data.session_id
         });
         this.navigate('product-search', {trigger: true});
       }
     },
 
-    profilePage: function() {
+    updateProfilePage: function() {
       $(R.Const.MAIN).empty();
-      var profilePage = new R.View.Profile({
-        model: this.profileModel
-      });
+      var profilePage = new R.Vew.Profile();
 
       $(R.Const.MAIN).append(profilePage.render().el);
     },
+
 
     productSearch: function() {
       $(R.Const.MAIN).empty();

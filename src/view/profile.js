@@ -4,13 +4,14 @@ R.View = R.View || {};
 (function(R, _, $, Backbone) {
   "use strict";
 
-  R.View.PersonInput = Backbone.View.extend({
-    FORM: '#personInput',
+  R.View.Profile = Backbone.View.extend({
+    FORM: '#profileUpdate',
 
-    template: _.template(R.Template.Person.Start),
+    template: _.template(R.Template.Profile.Update),
 
     initialize: function() {
       _.bindAll('render');
+      console.log(this.model);
     },
 
     events: {
@@ -18,7 +19,7 @@ R.View = R.View || {};
     },
 
     render: function() {
-      this.compiledHTML = this.template();
+      this.compiledHTML = this.template(this.model.toJSON());
       this.$el.html(this.compiledHTML);
 
       return this;
@@ -26,14 +27,12 @@ R.View = R.View || {};
 
     submit: function(ev) {
       ev.preventDefault();
-      R.main.trigger('product-search-page');
       var self = this;
       var formData = {};
       $.each(this.$('#personInput').serializeArray(), function(i, field) {
           formData[field.name] = field.value;
       });
       formData['session_id'] = window.localStorage.getItem('sid');
-      console.log(formData);
       $.ajax({
         url: 'http://pacific-eyrie-4115.herokuapp.com/daily_limit',
         data: formData,
