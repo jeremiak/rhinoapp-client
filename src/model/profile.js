@@ -12,6 +12,8 @@ R.Model = R.Model || {};
       }
     },
 
+    url: R.Const.SERVER + '/set_profile',
+
     defaults: {
       current_weight: '',
       goal_weight: '',
@@ -25,6 +27,18 @@ R.Model = R.Model || {};
     save: function(attrs, options) {
       this.set(attrs);
 
+      for (attr in attrs) {
+        window.localStorage.setItem(attr, this.get(attr));
+      }
+
+      Backbone.sync('update', this, {
+        success: function(res) {
+          this.set('daily_calorie_limit', res.daily_calorie_limit);
+        },
+        error: function() {
+          options.error();
+        }
+      });
     }
   });
 
