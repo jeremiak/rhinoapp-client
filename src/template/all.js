@@ -8,25 +8,25 @@ R.Template.Profile = {
     <label>Current weight</label> \
     <div class="right"> \
       <input type="text" name="current_weight" /><%= current_weight %> \
-        <span>lbs.</span> \
+        <span> lbs.</span> \
     </div> \
     <label>Goal weight</label> \
     <div class="right"> \
       <input type="text" name="goal_weight" /><%= goal_weight %> \
-        <span>lbs.</span><br> \
+        <span> lbs.</span><br> \
     </div> \
     <label>Weeks until goal</label> \
     <div class="right"> \
       <input type="text" name="weeks_to_goal" /><%= weeks_to_goal %> \
-        <span>weeks</span><br> \
+        <span> weeks</span><br> \
     </div> \
     <label>Age</label> \
     <div class="right"> \
-      <input type="text" name="age" /><%= age %><span>yrs</span><br> \
+      <input type="text" name="age" /><%= age %><span> yrs</span><br> \
     </div> \
     <label>Height</label> \
     <div class="right"> \
-      <input type="text" name="height" /><%= height %><span>inches</span><br> \
+      <input type="text" name="height" /><%= height %><span> inches</span><br> \
     </div> \
     <label>Gender</label> \
     <div class="right"> \
