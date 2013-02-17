@@ -7,7 +7,7 @@ R.Router = R.Router || {};
 
     routes: {
       'login': 'login',
-      'init-person?*path': 'initPerson',
+      'update-person?*path': 'updatePerson',
       'person-input': 'personInput',
       'person-input?*path': 'personInput',
       'product-search': 'productSearch',
@@ -28,6 +28,7 @@ R.Router = R.Router || {};
     },
 
     start: function() {
+      var self = this;
       var sid = window.localStorage.getItem('sid');
       if(sid === null) {
         var url = 'http://pacific-eyrie-4115.herokuapp.com/create_food_api_session?uid=rhino_user&devid=rhino_device';        
@@ -35,37 +36,30 @@ R.Router = R.Router || {};
            url: url,
                type: 'GET',
                success: function(data) {
-                   console.log('session id successfully returned: ' + data)
-                   window.localStorage.setItem('sid', data);
+                  console.log('session id successfully returned: ' + data)
+                  self.profileModel = new R.Model.Profile({
+                    sessionId: data.session_id
+                  });
+                  self.navigate('update-person', {trigger: true});
                },
                error: function(data) {
-                   console.log(data);
+                 window.alert('Could not connect to server, try again later');
                }
             });
-        this.navigate('product-search', {trigger: true});
       } else {
           this.navigate('product-search', {trigger: true});
       }
-      // window.location.reload();
     },
 
-    login: function() {
-      $(R.Const.MAIN).addClass('login');
+    updatePerson: function() {
       $(R.Const.MAIN).empty();
-      var $loginButton = $('<a class="loginButton button" \
-        href="https://hapi.medhelp.ws/oauth/authorize?authorize=Yes&response_type=code&redirect_uri=http://pacific-eyrie-4115.herokuapp.com/callback&client_id=e7fc52ddd676d34660c05022e1c26fe822c4b2fe4f7555d52500007ecad5063f"> \
-        Login with MedHelp</a>');
-      $(R.Const.MAIN).append($loginButton);
-    },
 
-    initPerson: function() {
-      $(R.Const.MAIN).empty();
-      var authToken = $.url('access_token');
-      var userId = $.url('user_id');
-      $.totalStorage('auth_token', authToken);
-      $.totalStorage('user_id', userId);
-      this.navigate('person-input');
-      window.location.reload();
+      //var authToken = $.url('access_token');
+      //var userId = $.url('user_id');
+      //$.totalStorage('auth_token', authToken);
+      //$.totalStorage('user_id', userId);
+      //this.navigate('person-input');
+      //window.location.reload();
     },
 
     personInput: function() {
