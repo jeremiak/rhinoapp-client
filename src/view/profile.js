@@ -31,7 +31,16 @@ R.View = R.View || {};
       var self = this,
           formData = {};
       $.each(this.$('#personInput').serializeArray(), function(i, field) {
-          formData[field.name] = field.value;
+        formData[field.name] = field.value;
+      });
+      this.model.set(formData);
+      this.model.save(null, {
+        success: function(data) {
+          R.main.navigate('product-search', {trigger: true});
+        },
+        error: function() {
+          alert('There was an error connecting to the server');
+        }
       });
     },
 

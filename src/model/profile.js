@@ -40,7 +40,9 @@ R.Model = R.Model || {};
     },
 
     save: function(attrs, options) {
-      this.set(attrs);
+      if (attrs) {
+        this.set(attrs);
+      }
 
       for (attr in attrs) {
         window.localStorage.setItem(attr, this.get(attr));
@@ -49,6 +51,7 @@ R.Model = R.Model || {};
       Backbone.sync('update', this, {
         success: function(res) {
           this.set('daily_calorie_limit', res.daily_calorie_limit);
+          options.success();
         },
         error: function() {
           options.error();
