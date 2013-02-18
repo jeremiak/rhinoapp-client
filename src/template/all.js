@@ -31,25 +31,25 @@ R.Template.Profile = {
     <label>Gender</label> \
     <div class="right"> \
       <select name="gender"> \
-        <option value="male">Male</option> \
-        <option value="female">Female</option> \
+        <option value="male" <% (gender === "male") ? print("selected") : print(""); %> >Male</option> \
+        <option value="female" <% (gender === "female") ? print("selected") : print(""); %> >Female</option> \
       </select> \
     </div> \
     <label>Activity Level</label> \
     <div class="right"> \
       <select name="activity_level"> \
-        <option value="sedentary">Sedentary</option> \
-        <option value="lightly active">Ligtly Active</option> \
-        <option value="moderately_active">Moderately Active</option> \
-        <option value="very_active">Very Active</option> \
+        <option value="sedentary" <% (activity_level === "sedentary") ? print("selected") : print(""); %> >Sedentary</option> \
+        <option value="lightly_active" <% (activity_level === "lightly_active") ? print("selected") : print(""); %>>Ligtly Active</option> \
+        <option value="moderately_active" <% (activity_level === "moderately_active") ? print("selected") : print(""); %> >Moderately Active</option> \
+        <option value="very_active" <% (activity_level === "very_active") ? print("selected") : print(""); %> >Very Active</option> \
       </select> \
     </div> \
     <% _.each(allergies, function(allergy) { %> \
       <label><%= allergy.display %></label> \
       <div class="right"> \
         <select name="<%= allergy.name %>"> \
-          <option value="yes">Yes</option> \
-          <option value="no">No</option> \
+          <option value="yes" <% (allergy.value === "yes") ? print("selected") : print(""); %> >Yes</option> \
+          <option value="no" <% (allergy.value === "no") ? print("selected") : print(""); %> >No</option> \
         </select> \
       </div> \
     <% }); %> \

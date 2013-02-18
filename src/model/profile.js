@@ -20,8 +20,23 @@ R.Model = R.Model || {};
       age: '',
       height: '',
       weeks_to_goal: '',
-      gender: '',
-      activity_level: ''
+      gender: 'male',
+      activity_level: 'sedentary',
+      cereal_allergy: 'no',
+      coconut_allergy: 'no',
+      corn_allergy: 'no',
+      egg_allergy: 'no',
+      fish_allergy: 'no',
+      gluten_allergy: 'no',
+      lactose_allergy: 'no',
+      milk_allergy: 'no',
+      peanuts_allergy: 'no',
+      sesame_seed_allergy: 'no',
+      shellfish_allergy: 'no',
+      soybean_allergy: 'no',
+      sulfites_allergy: 'no',
+      tree_nut_allergy: 'no',
+      wheat_allergy: 'no'
     },
 
     save: function(attrs, options) {

@@ -18,6 +18,7 @@ R.Router = R.Router || {};
     initialize: function() {
       var self = this;
       this.productModel = new R.Model.Product();
+      this.profileModel = new R.Model.Profile();
       this.bind('product-search-page', function() {
         self.navigate('product-search', {trigger: true});
       });
