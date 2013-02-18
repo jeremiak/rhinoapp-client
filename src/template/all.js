@@ -44,6 +44,15 @@ R.Template.Profile = {
         <option value="very_active">Very Active</option> \
       </select> \
     </div> \
+    <% _.each(allergies, function(allergy) { %> \
+      <label><%= allergy.display %></label> \
+      <div class="right"> \
+        <select name="<%= allergy.name %>"> \
+          <option value="yes">Yes</option> \
+          <option value="no">No</option> \
+        </select> \
+      </div> \
+    <% }); %> \
     <div class="centered"> \
       <a href="#" class="button submitForm">start</a> \
     </div> \

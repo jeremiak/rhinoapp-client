@@ -11,7 +11,6 @@ R.View = R.View || {};
 
     initialize: function() {
       _.bindAll('render');
-      console.log(this.model);
     },
 
     events: {
@@ -19,7 +18,10 @@ R.View = R.View || {};
     },
 
     render: function() {
-      this.compiledHTML = this.template(this.model.toJSON());
+      console.log(this.model);
+      var jsonModel = this.model.toJSON();
+      jsonModel.allergies = this.allergies;
+      this.compiledHTML = this.template(jsonModel);
       this.$el.html(this.compiledHTML);
 
       return this;
@@ -27,23 +29,75 @@ R.View = R.View || {};
 
     submit: function(ev) {
       ev.preventDefault();
-      var self = this;
-      var formData = {};
+      var self = this,
+          formData = {};
       $.each(this.$('#personInput').serializeArray(), function(i, field) {
           formData[field.name] = field.value;
       });
-      formData['session_id'] = window.localStorage.getItem('sid');
-      $.ajax({
-        url: 'http://pacific-eyrie-4115.herokuapp.com/daily_limit',
-        data: formData,
-        type: 'POST',
-        success: function(data) {
-          var dailyLimit = data['limit'];
-          $.totalStorage( 'limit', dailyLimit);
-          R.main.trigger('product-search-page');
-        }
-      });
-    }
+    },
+
+    allergies: [
+      {
+        name: 'cereal_allergy',
+        display: 'Cereal Allergy'
+      },
+      {
+        name: 'coconut_allergy',
+        display: 'Coconut Allergy'
+      },
+      {
+        name: 'corn_allergy',
+        display: 'Corn Allergy'
+      },
+      {
+        name: 'egg_allergy',
+        display:'Egg Allergy'
+      },
+      {
+        name: 'fish_allergy',
+        display: 'Fish Allergy'
+      },
+      {
+        name: 'gluten_allergy',
+        display: 'Gluten Allergy'
+      },
+      {
+        name: 'lactose_allergy',
+        display: 'Lactose Allergy'
+      },
+      {
+        name: 'milk_allergy',
+        display: 'Milk Allergy'
+      },
+      {
+        name: 'peanuts_allergy',
+        display: 'Peanuts Allergy'
+      },
+      {
+        name: 'sesame_seed_allergy',
+        display: 'Sesame Seed Allergy'
+      },
+      {
+        name: 'shellfish_allergy',
+        display: 'Shellfish Allergy'
+      },
+      {
+        name: 'soybean_allergy',
+        display: 'Soybean Allergy'
+      },
+      {
+        name: 'sulfites_allergy',
+        display: 'Sulfites Allergy'
+      },
+      {
+        name: 'tree_nut_allergy',
+        display: 'Tree Nut Allergy'
+      },
+      {
+        name: 'wheat_allergy',
+        display: 'Wheat Allergy'
+      }
+    ]
 
   });
 
